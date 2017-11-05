@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve logo
+After=network.target
+
+[Service]
+User=vagrant
+Group=www-data
+WorkingDirectory=/vagrant/src
+Environment="PATH=/usr/local/bin"
+ExecStart=/usr/local/bin/uwsgi --ini logo.ini
+
+[Install]
+WantedBy=multi-user.target
